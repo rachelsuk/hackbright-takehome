@@ -12,3 +12,14 @@ class Canvas():
 
     def clear_shapes(self):
         pass
+
+
+class Shape():
+    def __init__(self, start_x, start_y, end_x, end_y, fill_char):
+        pass
+
+    def change_fill_char(self, char):
+        pass
+
+    def translate(self, axis, num):
+        pass
