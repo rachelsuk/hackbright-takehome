@@ -6,3 +6,9 @@ class Canvas():
         for num in range(self.height):
             row_str = " " * self.width
             self.canvas.append(row_str)
+
+    def add_shape(self, shape):
+        pass
+
+    def clear_shapes(self):
+        pass
