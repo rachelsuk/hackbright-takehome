@@ -30,7 +30,10 @@ class Canvas():
         self.canvas_matrix = new_canvas_matrix
 
     def clear_shapes(self):
-        pass
+        self.canvas_matrix = []
+        for num in range(self.height):
+            row_str = ["." for x in range(self.width)]
+            self.canvas_matrix.append(row_str)
 
 
 class Shape():
@@ -95,5 +98,8 @@ s2 = Shape(2, 5, 3, 2, 'a')
 for row in s2.shape_matrix:
     print(row)
 c.add_shape(s2)
+for row in c.canvas_matrix:
+    print(row)
+c.clear_shapes()
 for row in c.canvas_matrix:
     print(row)
