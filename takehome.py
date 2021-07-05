@@ -2,30 +2,39 @@ class Canvas():
     def __init__(self, height, width):
         self.height = height
         self.width = width
+        self.empty_canvas_matrix = []
+        self.shapes = []
         self.canvas_matrix = []
         for num in range(self.height):
             row_str = ["." for x in range(self.width)]
+            self.empty_canvas_matrix.append(row_str)
             self.canvas_matrix.append(row_str)
 
-    def add_shape(self, shape):
-        new_shape = shape.shape_matrix
-        canvas_matrix = self.canvas_matrix
-        canvas_matrix.reverse()
-        new_canvas_matrix = []
-        for row in canvas_matrix:
-            new_row = row
-            if new_shape == []:
-                new_canvas_matrix.append(new_row)
-                continue
-            shape_row = new_shape.pop()
-            shape_index = 0
-            while shape_index < len(shape_row):
-                if shape_row[shape_index] != ".":
-                    new_row[shape_index] = shape_row[shape_index]
-                shape_index += 1
-            new_canvas_matrix.append(new_row)
+    def print_canvas(self):
+        for row in self.canvas_matrix:
+            print("".join(row))
 
-        new_canvas_matrix.reverse()
+    def add_shape(self, added_shape):
+        self.shapes.append(added_shape)
+        for shape in self.shapes:
+            new_shape = shape.shape_matrix
+            canvas_matrix = self.empty_canvas_matrix
+            # canvas_matrix.reverse()
+            new_canvas_matrix = []
+            for index, row in enumerate(canvas_matrix):
+                new_row = row
+                if index >= len(new_shape):
+                    new_canvas_matrix.append(new_row)
+                    continue
+                shape_row = new_shape[-(index+1)]
+                shape_index = 0
+                while shape_index < len(shape_row):
+                    if shape_row[shape_index] != ".":
+                        new_row[shape_index] = shape_row[shape_index]
+                    shape_index += 1
+                new_canvas_matrix.append(new_row)
+
+            new_canvas_matrix.reverse()
 
         self.canvas_matrix = new_canvas_matrix
 
@@ -46,6 +55,10 @@ class Shape():
         self.height = (start_y-end_y) + 1
         self.fill_char = fill_char
         self.create_shape()
+
+    def print_shape(self):
+        for row in self.shape_matrix:
+            print("".join(row))
 
     def create_shape(self):
         self.shape_matrix = []
@@ -79,27 +92,60 @@ class Shape():
         self.create_shape()
 
 
-c = Canvas(10, 10)
-# for row in c.canvas_matrix:
-#     print(row)
-s = Shape(1, 4, 3, 2, 'a')
-for row in s.shape_matrix:
-    print(row)
-s.change_fill_char('b')
-# for row in s.shape_matrix:
-#     print(row)
-s.translate('y', 6)
-# for row in s.shape_matrix:
-#     print(row)
-c.add_shape(s)
-for row in c.canvas_matrix:
-    print(row)
-s2 = Shape(2, 5, 3, 2, 'a')
-for row in s2.shape_matrix:
-    print(row)
-c.add_shape(s2)
-for row in c.canvas_matrix:
-    print(row)
-c.clear_shapes()
-for row in c.canvas_matrix:
-    print(row)
+def create_canvas(height, width):
+    new_canvas = Canvas(height, width)
+    return new_canvas
+
+
+def render_canvas(canvas):
+    canvas.print_canvas()
+
+
+def add_shape_to_canvas(canvas, shape):
+    canvas.add_shape(shape)
+
+
+def clear_shapes(canvas):
+    canvas.clear_shapes()
+
+
+def create_rectange(canvas, start_x, start_y, end_x, end_y, fill_char):
+    new_rect = Shape(start_x, start_y, end_x, end_y, fill_char)
+    canvas.add_shape(new_rect)
+    return new_rect
+
+
+def change_fill_char(canvas, rect, char):
+    canvas.shapes.remove(rect)
+    rect.change_fill_char(char)
+    canvas.add_shape(rect)
+
+
+def translate(canvas, rect, axis, num):
+    canvas.shapes.remove(rect)
+    rect.translate(axis, num)
+    canvas.add_shape(rect)
+
+    # c = Canvas(10, 10)
+    # c.print_canvas()
+    # print("-"*50)
+    # s = Shape(1, 4, 3, 2, 'a')
+    # s.print_shape()
+    # print("-"*50)
+    # s.change_fill_char('b')
+    # s.print_shape()
+    # print("-"*50)
+    # s.translate('y', 6)
+    # s.print_shape()
+    # print("-"*50)
+    # c.add_shape(s)
+    # c.print_canvas()
+    # print("-"*50)
+    # s2 = Shape(2, 5, 3, 2, 'a')
+    # s2.print_shape()
+    # print("-"*50)
+    # c.add_shape(s2)
+    # c.print_canvas()
+    # print("-"*50)
+    # c.clear_shapes()
+    # c.print_canvas()
