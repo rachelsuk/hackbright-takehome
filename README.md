@@ -44,5 +44,6 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
 
   `>>> clear_shapes(c)`
 
-**The most recently added rectangle appears on top of other rectangles
-**Characters out of bounds of the canvas are not rendered
+\*\*The most recently added rectangle appears on top of other rectangles
+
+\*\*Characters out of bounds of the canvas are not rendered
