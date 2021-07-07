@@ -31,7 +31,7 @@ class Canvas():
                 shape_row = new_shape[-(index+1)]
                 shape_index = 0
                 while (shape_index < len(shape_row)) & (shape_index < len(row)):
-                    if shape_row[shape_index] != ".":
+                    if shape_row[shape_index] != " ":
                         row[shape_index] = shape_row[shape_index]
                     shape_index += 1
         # flip the canvas 180 degrees b/c bottom of the shape is at the top of
@@ -44,7 +44,7 @@ class Canvas():
         """Clears canvas of all shapes."""
         self.canvas_matrix = []
         for num in range(self.height):
-            row_str = ["." for x in range(self.width)]
+            row_str = [" " for x in range(self.width)]
             self.canvas_matrix.append(row_str)
 
 
@@ -73,9 +73,9 @@ class Shape():
         row_num = self.start_y
         for num in range(self.start_y+1):
             if row_num < (self.end_y):
-                row_str = ["." for x in range(self.end_x + 1)]
+                row_str = [" " for x in range(self.end_x + 1)]
             else:
-                row_str = ["." for x in range(self.start_x)] + \
+                row_str = [" " for x in range(self.start_x)] + \
                     [self.fill_char for x in range(self.width)]
             self.shape_matrix.append(row_str)
             row_num -= 1
