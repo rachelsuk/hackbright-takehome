@@ -35,12 +35,16 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
   >>> render_canvas(c)
   ```
 
+  ![IMG of new shape](img/new_shape.png)
+
 - Translate rectangle (move up/down or left/right)
 
   ```
   >>> translate(c,r,"x",3)
   >>> render_canvas(c)
   ```
+
+  ![IMG of translated shape](img/translated_shape.png)
 
 - Change a rectangle's fill character
 
@@ -49,12 +53,16 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
   >>> render_canvas(c)
   ```
 
+  ![IMG of shape with new fill char](img/fill_char_shape.png)
+
 - Clear all shapes from a canvas
 
   ```
   >>> clear_shapes(c)
   >>> render_canvas(c)
   ```
+
+  ![IMG of cleared canvas](img/clear_canvas.png)
 
 \*\*The most recently added rectangle appears on top of other rectangles
 
