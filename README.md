@@ -66,4 +66,8 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
 
 \*\*The most recently added rectangle appears on top of other rectangles
 
+![IMG of overlapped rectanges](img/overlap_rect.png)
+
 \*\*Characters out of bounds of the canvas are not rendered
+
+![IMG of rectangle with characters out of bounds](img/out_of_bounds.png)
