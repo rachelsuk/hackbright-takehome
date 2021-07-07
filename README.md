@@ -1,8 +1,8 @@
-#Hackbright Take Home
+# Hackbright Take Home
 
 I implemented an API for drawing and manipulating rectangles on a canvas. I used object-oriented programming with Python to implement the API.
 
-##How to use the API
+## How to use the API
 
 1. After cloning the repo, install dependencies
    `$ pip3 install -r requirements.txt`
@@ -10,7 +10,7 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
    `$ python3 -i takehome.py`
 3. Play around with the functions below (in Features) to try out the features!
 
-##Features
+## Features
 
 - Create the canvas with a specified height and width
   `>>> c = create_canvas(15,10)`
