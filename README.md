@@ -4,9 +4,7 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
 
 ## How to use the API
 
-1. After cloning the repo, install dependencies
-
-   `$ pip3 install -r requirements.txt`
+1. Clone the repo. There are no required python packages.
 
 2. Open an interactive console
 
