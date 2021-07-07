@@ -30,31 +30,31 @@ I implemented an API for drawing and manipulating rectangles on a canvas. I used
 
 - Add the rectangle to the canvas
 
-```
->>> add_shape_to_canvas(c,r)
->>> render_canvas(c)
-```
+  ```
+  >>> add_shape_to_canvas(c,r)
+  >>> render_canvas(c)
+  ```
 
 - Translate rectangle (move up/down or left/right)
 
-```
->>> translate(c,r,"x",3)
->>> render_canvas(c)
-```
+  ```
+  >>> translate(c,r,"x",3)
+  >>> render_canvas(c)
+  ```
 
 - Change a rectangle's fill character
 
-```
->>> change_fill_char(c,r,"%")
->>> render_canvas(c)
-```
+  ```
+  >>> change_fill_char(c,r,"%")
+  >>> render_canvas(c)
+  ```
 
 - Clear all shapes from a canvas
 
-```
->>> clear_shapes(c)
->>> render_canvas(c)
-```
+  ```
+  >>> clear_shapes(c)
+  >>> render_canvas(c)
+  ```
 
 \*\*The most recently added rectangle appears on top of other rectangles
 
